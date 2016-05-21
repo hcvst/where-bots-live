@@ -1,3 +1,4 @@
+Fiber = Npm.require('fibers');
 BotRegistry = {};
 
 var TelegramBot = require('node-telegram-bot-api');
@@ -11,18 +12,21 @@ registerBotsCollection = function(collection){
 }
 
 function added(bot){
-    BotRegistry[bot._id] = eval(bot.code);
-    console.log("Added: " + bot);
+    var telegramBot = new TelegramBot(bot.token, {polling: true});
+    var collections = {};
+    bot.collections.forEach(function(collection) {
+        var collectionName = bot._id + "_" + collection;
+        collections[collection] = new Mongo.Collection(collectionName);
+    });
+    new Function('bot', 'collections', bot.code)(telegramBot, collections);
 }
 
 function changed(bot){
-    BotRegistry[bot._id] = eval(bot.code);
-    console.log("Changed: " + bot);
+    console.log("changed");
+    console.log(bot);
 }
 
 function removed(bot){
-    delete BotRegistry[bot._id];
-    console.log("Removed: " + bot);
+    console.log("removed");
+    console.log(bot);
 }
-
-// move this to telegram.js

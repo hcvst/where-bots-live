@@ -1,0 +1,17 @@
+.container {
+    width: 100%;
+    display: flex;
+}
+
+.container .details {
+    width: 60%;
+}
+
+.container .help {
+    border:1px solid #aaa;
+    width: 40%;
+    margin-left: 20px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgb(249,250,252);
+}

@@ -37,16 +37,39 @@ TelegramApps.attachSchema(new SimpleSchema({
         }
     }
 }));
+var defaultCode = '' +
+    'bot.onText(/\\/hello/, function(msg){\n' +
+    '    bot.sendMessage(msg.from.id, "Hello World");\n' +
+    '});\n\n' +
+    'bot.onText(/\\/count/, function(msg){\n' +
+    '    // also see http://docs.meteor.com/api/collections.html#Mongo-Collection\n' +
+    '    // Access to collections must happen from within a Fiber\n' +
+    '    Fiber(function(){\n' +
+    '        collections.state.insert({from: msg.from.id});\n' +
+    '        count = collections.state.find({from: msg.from.id}).count();\n' +
+    '        bot.sendMessage(msg.from.id, "Called " + count + " times.");\n' +
+    '    }).run();\n' +
+    '})\n\n';
 
 TelegramBots.attachSchema(new SimpleSchema({
     name: {
         type: String
     },
+    token: {
+        type: String
+    },
+    collections: {
+        type: [String],
+        autoform: {
+            type: 'tags',
+            defaultValue: ['state']
+        }
+    },
     code: {
         type: String,
         autoform: {
-            type: String,
-            rows: 40
+            type: 'ace',
+            defaultValue: defaultCode
         }
     },
     is_active: {
@@ -81,7 +104,12 @@ AdminConfig = {
             showEditColumn: true, // Set to false to hide the edit button. True by default.
             showDelColumn: true, // Set to false to hide the edit button. True by default.
             showWidget: true,
-            color: 'red'
+            color: 'red',
+            templates: {
+                new: {
+                    name: 'newBot'
+                }
+            }
         }
     }
 };

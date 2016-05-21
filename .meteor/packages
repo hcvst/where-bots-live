@@ -32,3 +32,6 @@ twbs:bootstrap
 fortawesome:fontawesome
 session
 msavin:mongol
+bshamblen:autoform-ace
+markdown
+yogiben:autoform-tags

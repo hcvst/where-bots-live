@@ -2,6 +2,7 @@ accounts-base@1.2.7
 accounts-password@1.1.8
 accounts-ui@1.1.9
 accounts-ui-unstyled@1.1.12
+ajduke:bootstrap-tagsinput@0.7.0
 alanning:roles@1.2.15
 aldeed:autoform@5.5.1
 aldeed:collection2@2.5.0
@@ -9,6 +10,7 @@ aldeed:simple-schema@1.3.3
 aldeed:tabular@1.4.2
 aldeed:template-extension@4.0.0
 allow-deny@1.0.4
+arch:ace-editor@1.2.1
 autopublish@1.0.7
 autoupdate@1.2.9
 babel-compiler@6.6.4
@@ -19,6 +21,7 @@ blaze@2.1.7
 blaze-html-templates@1.0.4
 blaze-tools@1.0.8
 boilerplate-generator@1.0.8
+bshamblen:autoform-ace@0.0.1
 caching-compiler@1.0.4
 caching-html-compiler@1.0.6
 callback-hook@1.0.8
@@ -62,6 +65,7 @@ less@2.6.0
 livedata@1.0.18
 localstorage@1.0.9
 logging@1.0.12
+markdown@1.0.9
 meteor@1.1.14
 meteor-base@1.0.4
 meteorhacks:meteorx@1.0.2
@@ -112,4 +116,5 @@ url@1.0.9
 webapp@1.2.8
 webapp-hashing@1.0.9
 yogiben:admin@1.2.6
+yogiben:autoform-tags@0.1.4
 zimme:active-route@2.3.2
