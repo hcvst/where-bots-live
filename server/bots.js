@@ -1,32 +1,98 @@
 Fiber = Npm.require('fibers');
+
 BotRegistry = {};
 
 var TelegramBot = require('node-telegram-bot-api');
 
-registerBotsCollection = function(collection){
+registerBotsCollection = function (collection) {
     collection.find().observe({
-        added: added,
-        changed: changed,
-        removed: removed
+        added: create,
+        changed: update,
+        removed: remove
     });
 }
 
-function added(bot){
-    var telegramBot = new TelegramBot(bot.token, {polling: true});
-    var collections = {};
-    bot.collections.forEach(function(collection) {
-        var collectionName = bot._id + "_" + collection;
-        collections[collection] = new Mongo.Collection(collectionName);
+function create(bot) {
+    console.log("Create bot: " + bot.name);
+    initRegistry(bot);
+    addCollections(bot);
+    addTelegramBot(bot);
+}
+
+function update(bot) {
+    console.log("Update bot: " + bot.name);
+    suspendBot(bot);
+    addCollections(bot);
+    dropUnusedCollections(bot);
+    addTelegramBot(bot);
+}
+
+function remove(bot) {
+    console.log("Remove bot: " + bot.name);
+    suspendBot(bot);
+    dropAllCollections(bot);
+    removeFromRegistry(bot);
+}
+
+
+
+function initRegistry(bot) {
+    BotRegistry[bot._id] = {bot: null, collections: {}};
+}
+
+function removeFromRegistry(bot) {
+    delete BotRegistry[bot._id];
+}
+
+
+function addCollections(bot) {
+    var registeredCollections = BotRegistry[bot._id].collections;
+    bot.collections.forEach(function (collectionName) {
+        if (!registeredCollections[collectionName]) {
+            var prefixedCollectionName = bot._id + "_" + collectionName;
+            registeredCollections[collectionName] = new Mongo.Collection(prefixedCollectionName);
+        }
     });
-    new Function('bot', 'collections', bot.code)(telegramBot, collections);
 }
 
-function changed(bot){
-    console.log("changed");
-    console.log(bot);
+function dropUnusedCollections(bot) {
+    var registeredCollections = BotRegistry[bot._id].collections;
+    for(registeredCollectionName in registeredCollections){
+        if(bot.collections.indexOf(registeredCollectionName) == -1){
+            dropCollection(registeredCollections[registeredCollectionName]);
+        }
+    }
 }
 
-function removed(bot){
-    console.log("removed");
-    console.log(bot);
+
+function addTelegramBot(bot) {
+    if(bot.is_active){
+        BotRegistry[bot._id].bot = new TelegramBot(bot.token, {polling: true});
+        new Function('bot', 'collections', 'Npm', bot.code)(
+            BotRegistry[bot._id].bot,
+            BotRegistry[bot._id].collections,
+            Npm);
+    }
+}
+
+function suspendBot(bot) {
+    if(BotRegistry[bot._id].bot){
+        BotRegistry[bot._id].bot._polling.abort = true;
+    }
+}
+
+function dropAllCollections(bot) {
+    var registeredCollections = BotRegistry[bot._id].collections;
+    for (registeredCollectionName in registeredCollections) {
+        dropCollection(registeredCollections[registeredCollectionName]);
+    }
+}
+
+function dropCollection(collection) {
+    console.log("Dropping collection " + collection._name);
+    collection.rawCollection().drop(function (err) {
+        if (err) {
+            console.log("Could not drop collection: " + err);
+        }
+    });
 }
