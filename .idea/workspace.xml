@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2405d5da-6a4e-4262-8244-3b83303a8690" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/collections.js" afterPath="$PROJECT_DIR$/collections.js" />
     </list>
     <ignored path="Where Bots Live.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -110,9 +109,9 @@
         <entry file="file://$PROJECT_DIR$/.meteor/local/build/programs/server/app/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="249" column="0" selection-start-line="249" selection-start-column="0" selection-end-line="249" selection-end-column="0" />
+              <caret line="248" column="0" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
               <folding>
-                <marker date="1463934282970" expanded="true" signature="28:30" placeholder="{...}" />
+                <marker date="1463934467406" expanded="true" signature="28:30" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -769,7 +768,7 @@
       <option name="number" value="Default" />
       <updated>1462610034189</updated>
       <workItem from="1462610046457" duration="11823000" />
-      <workItem from="1463808194866" duration="30193000" />
+      <workItem from="1463808194866" duration="30572000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1462610472192</created>
@@ -813,11 +812,17 @@
       <option name="project" value="LOCAL" />
       <updated>1463915172649</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Addded default 'start' handler">
+      <created>1463934483959</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1463934483959</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42016000" />
+    <option name="totallyTimeSpent" value="42395000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1061" extended-state="0" />
@@ -869,7 +874,8 @@
     <MESSAGE value="Moved Api help into separate template" />
     <MESSAGE value="Wrapped bot creation in try/catch" />
     <MESSAGE value="Added Flickr Api" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Flickr Api" />
+    <MESSAGE value="Addded default 'start' handler" />
+    <option name="LAST_COMMIT_MESSAGE" value="Addded default 'start' handler" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1061,9 +1067,9 @@
     <entry file="file://$PROJECT_DIR$/.meteor/local/build/programs/server/app/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="249" column="0" selection-start-line="249" selection-start-column="0" selection-end-line="249" selection-end-column="0" />
+          <caret line="248" column="0" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
           <folding>
-            <marker date="1463934282970" expanded="true" signature="28:30" placeholder="{...}" />
+            <marker date="1463934467406" expanded="true" signature="28:30" placeholder="{...}" />
           </folding>
         </state>
       </provider>
