@@ -68,10 +68,15 @@ function dropUnusedCollections(bot) {
 function addTelegramBot(bot) {
     if(bot.is_active){
         BotRegistry[bot._id].bot = new TelegramBot(bot.token, {polling: true});
-        new Function('bot', 'collections', 'Npm', bot.code)(
-            BotRegistry[bot._id].bot,
-            BotRegistry[bot._id].collections,
-            Npm);
+
+        try {
+            new Function('bot', 'collections', 'Npm', bot.code)(
+                BotRegistry[bot._id].bot,
+                BotRegistry[bot._id].collections,
+                Npm);
+        } catch (e) {
+            console.log("Failed to create Telegram bot: " + e);
+        }
     }
 }
 
