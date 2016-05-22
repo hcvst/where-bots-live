@@ -38,6 +38,11 @@ TelegramApps.attachSchema(new SimpleSchema({
     }
 }));
 var defaultCode = '' +
+    'bot.onText(/\\/start/, function(msg){\n'+
+    '    bot.sendMessage(msg.from.id, \n' +
+    '        "This bot is still under development using https://github.com/hcvst/where-bots-live"\n' +
+    '    );\n' +
+    '});\n\n'+
     'bot.onText(/\\/hello/, function(msg){\n' +
     '    bot.sendMessage(msg.from.id, "Hello World");\n' +
     '});\n\n' +
