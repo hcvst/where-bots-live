@@ -1,0 +1,261 @@
+<template name="apiHelp">
+    {{#markdown}}
+## API Reference
+
+[https://github.com/yagop/node-telegram-bot-api]()
+
+<a name="TelegramBot+getMe"></a>
+
+### telegramBot.getMe() ⇒ <code>Promise</code>
+Returns basic information about the bot in form of a `User` object.
+
+**Kind**: instance method of <code>[TelegramBot](#TelegramBot)</code>
+**See**: https://core.telegram.org/bots/api#getme
+
+<a name="TelegramBot+sendMessage"></a>
+
+### telegramBot.sendMessage(chatId, text, [options]) ⇒ <code>Promise</code>
+Send text message.
+
+**Kind**: instance method of <code>[TelegramBot](#TelegramBot)</code>
+**See**: https://core.telegram.org/bots/api#sendmessage
+
+| Param | Type | Description |
+| --- | --- | --- |
+| chatId | <code>Number</code> &#124; <code>String</code> | Unique identifier for the message recipient |
+| text | <code>String</code> | Text of the message to be sent |
+| [options] | <code>Object</code> | Additional Telegram query options |
+
+<a name="TelegramBot+answerInlineQuery"></a>
+
+### telegramBot.answerInlineQuery(inlineQueryId, results, [options]) ⇒ <code>Promise</code>
+Send answers to an inline query.
+
+**Kind**: instance method of <code>[TelegramBot](#TelegramBot)</code>
+**See**: https://core.telegram.org/bots/api#answerinlinequery
+
+| Param | Type | Description |
+| --- | --- | --- |
+| inlineQueryId | <code>String</code> | Unique identifier of the query |
+| results | <code>Array.&lt;InlineQueryResult&gt;</code> | An array of results for the inline query |
+| [options] | <code>Object</code> | Additional Telegram query options |
+
+<a name="TelegramBot+forwardMessage"></a>
+
+### telegramBot.forwardMessage(chatId, fromChatId, messageId) ⇒ <code>Promise</code>
+Forward messages of any kind.
+
+**Kind**: instance method of <code>[TelegramBot](#TelegramBot)</code>
+
+| Param | Type | Description |
+| --- | --- | --- |
+| chatId | <code>Number</code> &#124; <code>String</code> | Unique identifier for the message recipient |
+| fromChatId | <code>Number</code> &#124; <code>String</code> | Unique identifier for the chat where the original message was sent |
+| messageId | <code>Number</code> &#124; <code>String</code> | Unique message identifier |
+
+<a name="TelegramBot+sendPhoto"></a>
+
+### telegramBot.sendPhoto(chatId, photo, [options]) ⇒ <code>Promise</code>
+Send photo
+
+**Kind**: instance method of <code>[TelegramBot](#TelegramBot)</code>
+**See**: https://core.telegram.org/bots/api#sendphoto
+
+| Param | Type | Description |
+| --- | --- | --- |
+| chatId | <code>Number</code> &#124; <code>String</code> | Unique identifier for the message recipient |
+| photo | <code>String</code> &#124; <code>stream.Stream</code> &#124; <code>Buffer</code> | A file path or a Stream. Can also be a `file_id` previously uploaded |
+| [options] | <code>Object</code> | Additional Telegram query options |
+
+<a name="TelegramBot+sendAudio"></a>
+
+### telegramBot.sendAudio(chatId, audio, [options]) ⇒ <code>Promise</code>
+Send audio
+
+**Kind**: instance method of <code>[TelegramBot](#TelegramBot)</code>
+**See**: https://core.telegram.org/bots/api#sendaudio
+
+| Param | Type | Description |
+| --- | --- | --- |
+| chatId | <code>Number</code> &#124; <code>String</code> | Unique identifier for the message recipient |
+| audio | <code>String</code> &#124; <code>stream.Stream</code> &#124; <code>Buffer</code> | A file path, Stream or Buffer. Can also be a `file_id` previously uploaded. |
+| [options] | <code>Object</code> | Additional Telegram query options |
+
+<a name="TelegramBot+sendDocument"></a>
+
+### telegramBot.sendDocument(chatId, doc, [options]) ⇒ <code>Promise</code>
+Send Document
+
+**Kind**: instance method of <code>[TelegramBot](#TelegramBot)</code>
+**See**: https://core.telegram.org/bots/api#sendDocument
+
+| Param | Type | Description |
+| --- | --- | --- |
+| chatId | <code>Number</code> &#124; <code>String</code> | Unique identifier for the message recipient |
+| doc | <code>String</code> &#124; <code>stream.Stream</code> &#124; <code>Buffer</code> | A file path, Stream or Buffer. Can also be a `file_id` previously uploaded. |
+| [options] | <code>Object</code> | Additional Telegram query options |
+
+<a name="TelegramBot+sendSticker"></a>
+
+### telegramBot.sendSticker(chatId, sticker, [options]) ⇒ <code>Promise</code>
+Send .webp stickers.
+
+**Kind**: instance method of <code>[TelegramBot](#TelegramBot)</code>
+**See**: https://core.telegram.org/bots/api#sendsticker
+
+| Param | Type | Description |
+| --- | --- | --- |
+| chatId | <code>Number</code> &#124; <code>String</code> | Unique identifier for the message recipient |
+| sticker | <code>String</code> &#124; <code>stream.Stream</code> &#124; <code>Buffer</code> | A file path, Stream or Buffer. Can also be a `file_id` previously uploaded. Stickers are WebP format files. |
+| [options] | <code>Object</code> | Additional Telegram query options |
+
+<a name="TelegramBot+sendVideo"></a>
+
+### telegramBot.sendVideo(chatId, video, [options]) ⇒ <code>Promise</code>
+Use this method to send video files, Telegram clients support mp4 videos (other formats may be sent as Document).
+
+**Kind**: instance method of <code>[TelegramBot](#TelegramBot)</code>
+**See**: https://core.telegram.org/bots/api#sendvideo
+
+| Param | Type | Description |
+| --- | --- | --- |
+| chatId | <code>Number</code> &#124; <code>String</code> | Unique identifier for the message recipient |
+| video | <code>String</code> &#124; <code>stream.Stream</code> &#124; <code>Buffer</code> | A file path or Stream. Can also be a `file_id` previously uploaded. |
+| [options] | <code>Object</code> | Additional Telegram query options |
+
+<a name="TelegramBot+sendVoice"></a>
+
+### telegramBot.sendVoice(chatId, voice, [options]) ⇒ <code>Promise</code>
+Send voice
+
+**Kind**: instance method of <code>[TelegramBot](#TelegramBot)</code>
+**See**: https://core.telegram.org/bots/api#sendvoice
+
+| Param | Type | Description |
+| --- | --- | --- |
+| chatId | <code>Number</code> &#124; <code>String</code> | Unique identifier for the message recipient |
+| voice | <code>String</code> &#124; <code>stream.Stream</code> &#124; <code>Buffer</code> | A file path, Stream or Buffer. Can also be a `file_id` previously uploaded. |
+| [options] | <code>Object</code> | Additional Telegram query options |
+
+<a name="TelegramBot+sendChatAction"></a>
+
+### telegramBot.sendChatAction(chatId, action) ⇒ <code>Promise</code>
+Send chat action.
+`typing` for text messages,
+`upload_photo` for photos, `record_video` or `upload_video` for videos,
+`record_audio` or `upload_audio` for audio files, `upload_document` for general files,
+`find_location` for location data.
+
+**Kind**: instance method of <code>[TelegramBot](#TelegramBot)</code>
+**See**: https://core.telegram.org/bots/api#sendchataction
+
+| Param | Type | Description |
+| --- | --- | --- |
+| chatId | <code>Number</code> &#124; <code>String</code> | Unique identifier for the message recipient |
+| action | <code>String</code> | Type of action to broadcast. |
+
+<a name="TelegramBot+getUserProfilePhotos"></a>
+
+### telegramBot.getUserProfilePhotos(userId, [offset], [limit]) ⇒ <code>Promise</code>
+Use this method to get a list of profile pictures for a user.
+Returns a [UserProfilePhotos](https://core.telegram.org/bots/api#userprofilephotos) object.
+
+**Kind**: instance method of <code>[TelegramBot](#TelegramBot)</code>
+**See**: https://core.telegram.org/bots/api#getuserprofilephotos
+
+| Param | Type | Description |
+| --- | --- | --- |
+| userId | <code>Number</code> &#124; <code>String</code> | Unique identifier of the target user |
+| [offset] | <code>Number</code> | Sequential number of the first photo to be returned. By default, all photos are returned. |
+| [limit] | <code>Number</code> | Limits the number of photos to be retrieved. Values between 1—100 are accepted. Defaults to 100. |
+
+<a name="TelegramBot+sendLocation"></a>
+
+### telegramBot.sendLocation(chatId, latitude, longitude, [options]) ⇒ <code>Promise</code>
+Send location.
+Use this method to send point on the map.
+
+**Kind**: instance method of <code>[TelegramBot](#TelegramBot)</code>
+**See**: https://core.telegram.org/bots/api#sendlocation
+
+| Param | Type | Description |
+| --- | --- | --- |
+| chatId | <code>Number</code> &#124; <code>String</code> | Unique identifier for the message recipient |
+| latitude | <code>Float</code> | Latitude of location |
+| longitude | <code>Float</code> | Longitude of location |
+| [options] | <code>Object</code> | Additional Telegram query options |
+
+<a name="TelegramBot+getFile"></a>
+
+### telegramBot.getFile(fileId) ⇒ <code>Promise</code>
+Get file.
+Use this method to get basic info about a file and prepare it for downloading.
+Attention: link will be valid for 1 hour.
+
+**Kind**: instance method of <code>[TelegramBot](#TelegramBot)</code>
+**See**: https://core.telegram.org/bots/api#getfile
+
+| Param | Type | Description |
+| --- | --- | --- |
+| fileId | <code>String</code> | File identifier to get info about |
+
+<a name="TelegramBot+getFileLink"></a>
+
+### telegramBot.getFileLink(fileId) ⇒ <code>Promise</code>
+Get link for file.
+Use this method to get link for file for subsequent use.
+Attention: link will be valid for 1 hour.
+
+This method is a sugar extension of the (getFile)[#getfilefileid] method,
+which returns just path to file on remote server (you will have to manually build full uri after that).
+
+**Kind**: instance method of <code>[TelegramBot](#TelegramBot)</code>
+**Returns**: <code>Promise</code> - promise Promise which will have *fileURI* in resolve callback
+**See**: https://core.telegram.org/bots/api#getfile
+
+| Param | Type | Description |
+| --- | --- | --- |
+| fileId | <code>String</code> | File identifier to get info about |
+
+<a name="TelegramBot+downloadFile"></a>
+
+### telegramBot.downloadFile(fileId, downloadDir) ⇒ <code>Promise</code>
+Downloads file in the specified folder.
+This is just a sugar for (getFile)[#getfilefiled] method
+
+**Kind**: instance method of <code>[TelegramBot](#TelegramBot)</code>
+**Returns**: <code>Promise</code> - promise Promise, which will have *filePath* of downloaded file in resolve callback
+
+| Param | Type | Description |
+| --- | --- | --- |
+| fileId | <code>String</code> | File identifier to get info about |
+| downloadDir | <code>String</code> | Absolute path to the folder in which file will be saved |
+
+<a name="TelegramBot+onText"></a>
+
+### telegramBot.onText(regexp, callback)
+Register a RegExp to test against an incomming text message.
+
+**Kind**: instance method of <code>[TelegramBot](#TelegramBot)</code>
+
+| Param | Type | Description |
+| --- | --- | --- |
+| regexp | <code>RegExp</code> | RegExp to be executed with `exec`. |
+| callback | <code>function</code> | Callback will be called with 2 parameters, the `msg` and the result of executing `regexp.exec` on message text. |
+
+<a name="TelegramBot+onReplyToMessage"></a>
+
+### telegramBot.onReplyToMessage(chatId, messageId, callback)
+Register a reply to wait for a message response.
+
+**Kind**: instance method of <code>[TelegramBot](#TelegramBot)</code>
+
+| Param | Type | Description |
+| --- | --- | --- |
+| chatId | <code>Number</code> &#124; <code>String</code> | The chat id where the message cames from. |
+| messageId | <code>Number</code> &#124; <code>String</code> | The message id to be replied. |
+| callback | <code>function</code> | Callback will be called with the reply message. |
+
+* * *
+    {{/markdown}}
+</template>

@@ -108,7 +108,10 @@ AdminConfig = {
             templates: {
                 new: {
                     name: 'newBot'
-                }
+                },
+                //edit: {
+                //    name: 'updateBot',
+                //}
             }
         }
     }

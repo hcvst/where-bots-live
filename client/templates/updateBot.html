@@ -1,7 +1,7 @@
-<template name="newBot">
+<template name="updateBot">
     <div class="container">
         <div class="details">
-            {{> quickForm collection="TelegramBots" id="newBotForm" type="insert"}}
+            {{> quickForm collection="TelegramBots" doc=doc id="updateBotForm" type="update"}}
         </div>
 
         <div class="help">
