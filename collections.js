@@ -1,5 +1,6 @@
 TelegramApps = new Meteor.Collection('telegramApps');
 TelegramBots = new Meteor.Collection('telegramBots');
+Stats = new Meteor.Collection('stats');
 
 if(Meteor.isServer){
     registerBotsCollection(TelegramBots);

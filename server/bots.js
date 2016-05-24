@@ -64,7 +64,6 @@ function dropUnusedCollections(bot) {
     }
 }
 
-
 function addTelegramBot(bot) {
     if(bot.is_active){
         BotRegistry[bot._id].bot = new TelegramBot(bot.token, {polling: true});
@@ -77,7 +76,31 @@ function addTelegramBot(bot) {
         } catch (e) {
             console.log("Failed to create Telegram bot: " + e);
         }
+
+        addStatsListener(bot);
     }
+}
+
+
+function addStatsListener(bot) {
+    BotRegistry[bot._id].bot.onText(/\/(.+)/, function (msg, match){
+        Fiber(function(){
+            var command = match[1];
+            var username = msg.from.username;
+            var incCommandCounterObj = {};
+            incCommandCounterObj[command] = 1;
+            console.log(msg);
+            Stats.upsert(
+                {
+                    botId: bot._id,
+                    username: username
+                },
+                {
+                    $set: {lastDate: msg.date},
+                    $inc: incCommandCounterObj
+                });
+        }).run();
+    });
 }
 
 function suspendBot(bot) {
